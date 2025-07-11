@@ -1,0 +1,61 @@
+git@github.com: Permission denied (publickey).
+PS C:\HTML_Projects\My-first-github-repo
+
+Solutions: in Git Bash terminal
+
+Step 1: Verify SSH Agent and Key
+#ssh-add -l
+
+#ssh-add ~/.ssh/id_ed25519
+
+Step 2: Double-check the Key on GitHub
+Ensure that the correct public key is added to your GitHub account.
+
+Open Git Bash and run:
+
+#cat ~/.ssh/id_ed25519.pub
+
+This will output your public key. Copy everything from ssh-ed25519 to the end (the entire line).
+
+Go to GitHub SSH Keys Settings.
+
+Make sure this public key is listed in the SSH Keys section.
+
+If it's not there, click New SSH Key, paste the key, and save.
+
+
+
+ Step 3: Test Connection Again
+After verifying the above, try testing the connection to GitHub again
+
+#ssh -T git@github.com
+
+
+1. Pull the Latest Changes from the Remote Repository
+Run this command to fetch and merge the changes from the remote main branch into your local branch:
+
+#git pull origin main
+
+Step 4: Pull the Latest Changes Again
+Before pushing, let’s ensure we’re fully in sync with the remote:
+
+
+#git pull origin main --rebase
+
+Step 5: Push the Changes
+Now, try pushing again:
+
+g#it push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
